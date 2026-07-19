@@ -1,3 +1,43 @@
+{%- assign current_url = page.url | default: '/' %}
+{%- assign best_match_url = '' %}
+{%- assign best_match_len = 0 %}
+{%- assign site_nav = include.site-nav | default: site.site_nav | default: nil %}
+{%- if site_nav == nil %}
+  {%- assign site_nav = "" | split: " " %}
+{%- endif %}
+
+{%- for nav_item in site_nav %}
+  {%- assign nav_url = nav_item.url | default: '/' %}
+  {%- assign is_match = false %}
+
+  {%- if nav_url == '/' %}
+    {%- if current_url == '/' %}
+      {%- assign is_match = true %}
+    {%- endif %}
+  {%- else %}
+    {%- assign nav_last_char = nav_url | slice: -1, 1 %}
+    {%- if nav_last_char == '/' %}
+      {%- assign nav_prefix = nav_url %}
+    {%- else %}
+      {%- assign nav_prefix = nav_url | append: '/' %}
+    {%- endif %}
+
+    {%- assign nav_prefix_len = nav_prefix | size %}
+    {%- assign current_prefix = current_url | slice: 0, nav_prefix_len %}
+
+    {%- if current_url == nav_url or current_prefix == nav_prefix %}
+      {%- assign is_match = true %}
+    {%- endif %}
+  {%- endif %}
+
+  {%- if is_match %}
+    {%- assign nav_len = nav_url | size %}
+    {%- if nav_len > best_match_len -%}
+      {%- assign best_match_url = nav_url -%}
+      {%- assign best_match_len = nav_len -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
 <nav id="site-navigation" class="site-navigation" role="directory" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	<div class="menu-toggle">
 		<button class="menu-toggle-button" aria-controls="site-menu" aria-expanded="false">
@@ -7,11 +47,13 @@
 		</button>
 	</div>
 	<ul id="site-menu" class="site-menu">
-		<li><a href="{{ '/services/' | relative_url }}">Services</a></li>
-		<li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-		<li><a href="{{ '/products/' | relative_url }}">Products</a></li>
-		<li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
-		<li><a href="{{ '/about/' | relative_url }}">About</a></li>
-		<li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+		{% for nav_item in nav %}
+			{%- if nav_item.url == best_match_url -%}
+				{%- assign aria = "aria-current='page'" -%}
+			{%- else -%}
+				{%- assign aria = "" -%}
+			{%- endif -%}
+		<li><a href="{{ nav_item.url | relative_url }}" {{ aria }}>{{ nav_item.name }}</a></li>
+		{% endfor %}
 	</ul>
 </nav>

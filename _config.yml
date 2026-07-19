@@ -32,11 +32,19 @@ defaults:
       layout: "page"
       image: /assets/img/default.png # The default image used for social and posts.
 
-main_nav:
+site_nav:
+  - name: Services
+    url: /services/
+  - name: Projects
+    url: /projects/
+  - name: Products
+    url: /products/
   - name: Posts
-    url: /blog
-  - name: Categories
-    url: /category/
+    url: /posts/
+  - name: About
+    url: /about/
+  - name: Contact
+    url: /contact/
 
 blog_view: preview
 paginate: 3
