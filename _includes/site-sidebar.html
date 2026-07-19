@@ -1,6 +1,18 @@
+{%- assign latest_limit = site.sidebar_posts | default: 6 -%}
+{%- assign latest = site.posts limit: latest_limit -%}
 <aside class="page-sidebar">
-	<div class="sidebar-block">
-		<h3>Posts</h3>
+	<div class="sidebar-block sidebar-latest-posts">
+		<h3>Latest Posts</h3>
+		{%- if latest_limit > 0 -%}
+
+		<ul>
+		{%- for post in latest -%}
+			<li><a href="{{ latest.url }}">{{ latest.title }}</a></li>
+		{%- endfor -%}
+		</ul>
+
+		{%- else -%}
 		<p>No posts found</p>
+		{%- endif -%}
 	</div>
 </aside>
