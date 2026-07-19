@@ -125,16 +125,3 @@ tag_page_dir: tags
 category_path: category
 category_layout: category_layout.html
 ######################
-
-# ########### Build settings ###############
-exclude:
-  - spec
-  - demo
-  - .sass-cache
-  - .jekyll-cache
-  - gemfiles
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/
-  - integration/
