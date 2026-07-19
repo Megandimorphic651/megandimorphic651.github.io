@@ -34,7 +34,7 @@ defaults:
 
 blog_view: preview
 paginate: 3
-paginate_path: "/blog/page:num/"
+paginate_path: "/posts/page:num/"
 category_path: category
 category_layout: category_layout.html
 tag_page_layout: tags
