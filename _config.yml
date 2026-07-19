@@ -25,70 +25,15 @@ defaults:
       layout: "page"
       image: /assets/img/default-cover.jpg
 
-# The user/project avatar.  If not set the avatar of the project owner will be used.
 user_image: /assets/img/site-icon.png
-
-# The header brand icon. Use "none", "favicon", or an Octicon name like "mark-github".
 header_icon: favicon
 
-# The themes to use for dark and light
-dark_theme: dark # One of dark, dark_dimmed, dark_colorblind, dark_high_contrast, dark_tritanopia
-light_theme: light # One of light, light_colorblind, light_high_contrast, light_tritanopia
-
-repo_info: true # Show the information for the source of this project
-user_metadata: true # Show the metadata associated with the user
-profile_link: true # Show a link to the github profile for the user
-
-####################
-# Versioned docs settings
-# versions:
-#   enabled: true
-#   config: /versions.json
-#   prefix: ""
-#   # config and prefix are emitted exactly as configured here
-#   # versioning is enabled only when this block is present, or when enabled is explicitly true
-#   show_warning: true
-#   warning_title: Non-default version
-#   warning_message: You are viewing a non-default version of these docs.
-#   unavailable_label: Version info unavailable
-
-##########################
-# # Social media settings
-# icon_color: "#959da5" # The color of the social media icons on the site
-# social_media: # Your social media accounts
-#   behance: your_username
-#   dribbble: your_username
-#   docker: your_username
-#   facebook: your_username
-#   github: your_username
-#   hackerrank: your_username
-#   instagram: your_username
-#   keybase: your_username
-#   linkedin: your_username
-#   mail: email@address
-#   mastodon: your_username
-#   medium: your_username
-#   stackoverflow: your_user_id
-#   telegram: your_username
-#   threads: your_username
-#   tiktok: your_username
-#   twitter: your_username
-#   unsplash: your_username
-#   vk: your_username
-#   vscode: your_username
-#   youtube: your_username
-#   x: your_username
-
-####################
-# Navigation links
 nav:
   - name: Posts
     url: /posts
   - name: Categories
     url: /category/
 
-####################
-# List of links for link cards
 links:
   - name: All blog posts
     url: /posts
@@ -97,9 +42,16 @@ links:
     url: /category/
     thumbnail: /assets/img/category-icon.png
 
-########################
-# Post settings
 related_by: "tags or categories"
+
+paginate: 2
+paginate_path: "/posts/page:num"
+
+tag_page_layout: tags
+tag_page_dir: tags
+
+category_path: category
+category_layout: category_layout.html
 
 plugins:
   - jekyll-feed
@@ -107,24 +59,5 @@ plugins:
   - jekyll-sitemap
   - jekyll-target-blank
   - jekyll-gist
-  - jekyll-github-metadata
-  - jekyll-meta
   - jekyll-toc
   - jemoji
-
-####################
-# jekyll-paginate settings
-# Include `gem jekyll-paginate` in your gemfile
-paginate: 2 # The number of posts to show per page of pagination of blog posts
-paginate_path: "/posts/page:num"
-# ###################
-# jekyll-tagging settings
-# Include `gem jekyll-tagging` in your gemfile
-tag_page_layout: tags
-tag_page_dir: tags
-# ####################
-# jekyll-category-pages settings
-# Include `gem jekyll-category-pages` in your gemfile
-category_path: category
-category_layout: category_layout.html
-######################
