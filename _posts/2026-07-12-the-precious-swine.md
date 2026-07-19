@@ -1,5 +1,4 @@
 ---
-permalink: /bacon/
 layout: post
 title: Behold the Succulent Pig
 subtitle: There's always room for bacon.
