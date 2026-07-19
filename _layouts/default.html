@@ -1,0 +1,12 @@
+---
+layout: common
+---
+<article class="page-content">
+	{%- if page.title -%}
+	<h2 id="{{ page.title | slugify }}" class="page-title">{{ page.title }}</h2>
+	{%- endif -%}
+	{%- if page.subtitle -%}
+	<p class="page-subtitle">{{ page.subtitle }}</p>
+	{%- endif -%}
+	{{ content }}
+</article>

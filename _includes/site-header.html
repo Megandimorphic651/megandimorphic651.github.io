@@ -1,0 +1,28 @@
+<header id="masthead" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+	<div class="general-wrap">
+		<div class="site-identity">
+			{%- if site.avatar -%}
+			<figure class="site-avatar">
+				{%- if paginator.page != 1 -%}
+				<a href="{{ site.github.url }}">
+				{%- endif -%}
+					<img src="{{ '/assets/img/' | append: site.avatar | relative_url }}" alt="Yin-yang symbol" class="avatar" />
+					<figcaption class="screen-reader-text">
+						<span>Yin-yang symbol used as the Controlled Chaos Design avatar. Not a logo!</span>
+					</figcaption>
+				{%- if paginator.page != 1 -%}
+				</a>
+				{%- endif -%}
+			</figure>
+			{%- endif -%}
+			{%- if paginator.page == 1 -%}
+			<h1 class="site-title">{{ site.title }}</h1>
+			{%- else -%}
+			<p class="site-title">
+				<a href="{{ site.github.url }}">{{ site.title }}</a>
+			</p>
+			{%- endif -%}
+		</div>
+		{% include site-nav.html -%}
+	</div>
+</header>

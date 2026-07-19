@@ -1,0 +1,100 @@
+{%- capture title -%}
+	{%- if page.title -%}
+		{{ page.title | strip_html | xml_escape  }} | {{ site.title | strip_html | xml_escape }}
+	{%- else -%}
+		{{ site.title | strip_html | xml_escape }}
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- assign meta_description = false -%}
+{%- capture meta_description -%}
+	{%- if page.subtitle -%}
+		{{ page.subtitle | strip_html | xml_escape }}
+	{%- else -%}
+		{%- assign excerpt_length = site.excerpt_length | default: 30 -%}
+		{{ page.content | strip_html | xml_escape | truncatewords: excerpt_length, "…" | strip }}
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- assign meta_author = false -%}
+{%- capture meta_author -%}
+	{%- if page.author -%}
+		{{ page.author | strip_html | xml_escape }}
+	{%- elsif site.author -%}
+		{{ site.author | strip_html | xml_escape }}
+	{%- else -%}
+		""
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- assign meta_img = false -%}
+{%- capture meta_img -%}
+	{%- if page.share_img -%}
+		{{ page.share_img }}
+	{%- elsif site.share_img -%}
+		{{ site.share_img }}
+	{%- else -%}
+		""
+	{%- endif -%}
+{%- endcapture -%}
+<head>
+	<meta charset='utf-8' />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+
+	<link rel="profile" href="https://gmpg.org/xfn/11" />
+	<link href="{{ site.url }}{{ page.url }}" rel="canonical" />
+
+	<title>{{ title }}</title>
+
+	<!-- Remote fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+
+	<link rel="stylesheet" href="{{ '/assets/css/style.min.css?v=' | append: site.github.build_revision | relative_url }}" />
+
+	{% if site.avatar -%}
+	<!-- Site icon -->
+	<link rel="icon" href="{{ '/assets/img/' | append: site.avatar | relative_url }}" sizes="32x32" />
+	<link rel="icon" href="{{ '/assets/img/' | append: site.avatar | relative_url }}" sizes="192x192" />
+	<link rel="apple-touch-icon" href="{{ '/assets/img/' | append: site.avatar | relative_url }}" />
+	<meta name="msapplication-TileImage" content="{{ '/assets/img/' | append: site.avatar | relative_url }}" />
+	{%- endif %}
+
+	<!-- Standard meta tags -->
+	<meta name="keywords" content="{{ page.keywords }}" />
+	<meta name="title" content="{{ title }}" />
+	<meta name="description" content="{{ meta_description }}" />
+	<meta name="author" content="{{ meta_author }}" />
+	<meta name="copyright" content="No copyright assertions." />
+
+	<!-- Schema meta tags -->
+	<meta itemprop="url" content="{{ page.url | absolute_url }}" />
+	<meta itemprop="name" content="{{ title }}" />
+	<meta itemprop="description" content="{{ meta_description }}" />
+	<meta itemprop="author" content="{{ meta_author }}" />
+	<meta itemprop="datePublished" content="{{ page.published }}" />
+	<meta itemprop="image" content="{{ '/assets/img/' | append: meta_img | absolute_url }}" />
+
+	<!-- Open Graph meta tags -->
+	<meta property="og:url" content="{{ page.url | absolute_url }}" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="{{ site.title }}" />
+	<meta property="og:title" content="{{ title }}" />
+	<meta property="og:description" content="{{ meta_description }}" />
+	<meta property="og:image" content="{{ '/assets/img/' | append: meta_img | absolute_url }}" />
+
+	<!-- X/Twitter meta tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:domain" content="{{ site.url }}" />
+	<meta name="twitter:site" content="{{ site.title }}" />
+	<meta name="twitter:url" content="{{ page.url | absolute_url }}" />
+	<meta name="twitter:title" content="{{ title }}" />
+	<meta name="twitter:description" content="{{ meta_description }}" />
+	<meta name="twitter:image:src" content="{{ '/assets/img/' | append: meta_img | absolute_url }}" />
+</head>

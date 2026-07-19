@@ -1,0 +1,17 @@
+///
+/// Site footer styles
+///
+
+.site-footer {
+	margin: var( --ccd-site-footer--margin, 0 );
+	padding: var( --ccd-site-footer--padding, calc( var( --ccd-spacing--vert ) / 2 ) ) var( --ccd-site-footer--padding, var( --ccd-spacing--vert ) );
+	background-color: var( --ccd-site-footer--bg-color, var( --ccd-color--theme--secondary ) );
+	color: var( --ccd-site-footer--text-color, #ffffff );
+
+	.final-message {
+		margin: var( --ccd-site-footer--message--margin, 0 );
+		font-size: var( --ccd-site-footer--message--font-size, 0.8125rem );
+		font-weight: var( --ccd-site-footer--message--font-weight, 500 );
+		text-align: var( --ccd-site-footer--message--text-align, center );
+	}
+}

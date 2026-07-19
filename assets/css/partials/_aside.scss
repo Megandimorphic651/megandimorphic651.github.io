@@ -1,0 +1,175 @@
+///
+/// Aside/sidebar content
+///
+
+.page-sidebar {
+	position: var( --ccd-sidebar--position );
+	display: var( --ccd-sidebar--display, flex );
+	flex-direction: var( --ccd-sidebar--flex-direction, column );
+	flex-wrap: var( --ccd-sidebar--flex-wrap );
+	align-items: var( --ccd-sidebar--align-items );
+	justify-content: var( --ccd-sidebar--justify-content );
+	width: var( --ccd-sidebar--width, 320px );
+	max-width: var( --ccd-sidebar--max-width );
+	min-width: var( --ccd-sidebar--min-width, 240px );
+	height: var( --ccd-sidebar--height );
+	margin: var( --ccd-sidebar--margin, var( --ccd-spacing--vert, 2rem ) 0 0 0 );
+	padding: var( --ccd-sidebar--padding );
+	font-family: var( --ccd-sidebar--font-family, inherit );
+	font-size: var( --ccd-sidebar--font-size, inherit );
+	font-weight: var( --ccd-sidebar--font-weight, inherit );
+	font-style: var( --ccd-sidebar--font-style, inherit );
+	font-variant: var( --ccd-sidebar--font-variant, inherit );
+	line-height: var( --ccd-sidebar--line-height, inherit );
+	letter-spacing: var( --ccd-sidebar--letter-spacing, inherit );
+	word-spacing: var( --ccd-sidebar--word-spacing, inherit );
+	text-decoration: var( --ccd-sidebar--text-decoration, inherit );
+	text-transform: var( --ccd-sidebar--text-transform, inherit );
+	background-color: var( --ccd-sidebar--bg-color, inherit );
+	color: var( --ccd-sidebar--text-color, inherit );
+
+	@media ( prefers-color-scheme: dark ) {
+		background-color: var( --ccd-sidebar--bg-color--dark, inherit );
+		color: var( --ccd-sidebar--text-color--dark, inherit );
+	}
+
+	@container page-wrap ( max-width: 960px ) {
+		display: var( --ccd-sidebar--bottom--display, var( --ccd-sidebar--display, grid ) );
+		grid-template-columns: var( --ccd-sidebar--bottom--grid-template-columns, var( --ccd-sidebar--grid-template-columns, repeat( 2, 1fr ) ) );
+		gap:  var( --ccd-sidebar--bottom--gap, var( --ccd-spacing--vert, 2rem ) var( --ccd-spacing--horz, 2rem ) );
+		width: var( --ccd-sidebar--bottom--width, var( --ccd-sidebar--width, 100% ) );
+		max-width: var( --ccd-sidebar--bottom--max-width, var( --ccd-sidebar--max-width ) );
+		margin: 0;
+		background-color: var( --ccd-sidebar--bottom--bg-color, var( --ccd-sidebar--bg-color, inherit ) );
+		color: var( --ccd-sidebar--bottom--text-color, var( --ccd-sidebar--text-color, inherit ) );
+	}
+
+	@media screen and ( max-width: 960px ) {
+		display: var( --ccd-sidebar--bottom--display, var( --ccd-sidebar--display, grid ) );
+		grid-template-columns: var( --ccd-sidebar--bottom--grid-template-columns, var( --ccd-sidebar--grid-template-columns, repeat( 2, 1fr ) ) );
+		gap:  var( --ccd-sidebar--bottom--gap, var( --ccd-spacing--vert, 2rem ) var( --ccd-spacing--horz, 2rem ) );
+		width: var( --ccd-sidebar--bottom--width, var( --ccd-sidebar--width, 100% ) );
+		max-width: var( --ccd-sidebar--bottom--max-width, var( --ccd-sidebar--max-width ) );
+		margin: 0;
+		background-color: var( --ccd-sidebar--bottom--bg-color, var( --ccd-sidebar--bg-color, inherit ) );
+		color: var( --ccd-sidebar--bottom--text-color, var( --ccd-sidebar--text-color, inherit ) );
+
+		@media ( prefers-color-scheme: dark ) {
+			background-color: var( --ccd-sidebar--bottom--bg-color--dark, var( --ccd-sidebar--bg-color--dark, inherit ) );
+			color: var( --ccd-sidebar--bottom--text-color--dark, var( --ccd-sidebar--text-color--dark, inherit ) );
+		}
+	}
+
+	@container page-wrap ( max-width: 640px ) {
+		display: var( --ccd-sidebar--bottom--tablet--display, var( --ccd-sidebar--bottom--display, var( --ccd-sidebar--display, block ) ) );
+	}
+
+	@media screen and ( max-width: 640px ) {
+		display: var( --ccd-sidebar--bottom--tablet--display, var( --ccd-sidebar--bottom--display, var( --ccd-sidebar--display, block ) ) );
+	}
+
+	.plugin {
+		width: var( --ccd-sidebar--plugin--width, 100% );
+		max-width: var( --ccd-sidebar--plugin--max-width, 100% );
+		height: var( --ccd-sidebar--plugin--height, auto );
+		margin: var( --ccd-sidebar--plugin--margin, 0 );
+		padding: var( --ccd-sidebar--plugin--padding, 0 );
+		display: var( --ccd-sidebar--plugin--display, block );
+		position: var( --ccd-sidebar--plugin--position, static );
+
+		&:not( :first-of-type ) {
+			margin-top: var( --ccd-sidebar--plugin--margin-top, calc( var( --ccd-spacing--vert ) * .75 ) );
+
+			@container page-wrap ( max-width: 960px ) {
+				margin-top: 0;
+			}
+			@media screen and ( max-width: 960px ) {
+				margin-top: 0;
+			}
+			@container page-wrap ( max-width: 640px ) {
+				margin-top: var( --ccd-spacing--vert, 2rem );
+			}
+			@media screen and ( max-width: 640px ) {
+				margin-top: var( --ccd-spacing--vert, 2rem );
+			}
+		}
+
+		.plugin-content {
+			margin: var( --ccd-plugin-content--margin, 0 );
+			margin-top: var( --ccd-sidebar--plugin--margin-top, calc( var( --ccd-spacing--vert ) * .5 ) );
+		}
+	}
+
+	h2,
+	h3 {
+		margin: var( --ccd-sidebar--heading--margin, 0 );
+		padding: var( --ccd-sidebar--heading--padding, 0 );
+		font-family: var( --ccd-sidebar--heading--font-family, var( --ccd-heading-secondary--font-family, var( --ccd-fonts--display-stack, inherit ) ) );
+		font-size: var( --ccd-sidebar--heading--font-size, var( --ccd-heading-secondary--font-size ) );
+		font-weight: var( --ccd-sidebar--heading--font-weight, var( --ccd-heading-secondary--font-weight ) );
+		font-style: var( --ccd-sidebar--heading--font-style, var( --ccd-heading-secondary--font-style ) );
+		font-variant: var( --ccd-sidebar--heading--font-variant, var( --ccd-heading-secondary--font-variant ) );
+		line-height: var( --ccd-sidebar--heading--line-height, var( --ccd-heading-secondary--line-height ) );
+		letter-spacing: var( --ccd-sidebar--heading--letter-spacing, var( --ccd-heading-secondary--letter-spacing, -0.015em ) );
+		word-spacing: var( --ccd-sidebar--heading--word-spacing, var( --ccd-heading-secondary--word-spacing, -0.0325em ) );
+		text-decoration: var( --ccd-sidebar--heading--text-decoration, var( --ccd-heading-secondary--text-decoration ) );
+		text-transform: var( --ccd-sidebar--heading--text-transform, var( --ccd-heading-secondary--text-transform ) );
+
+		a {
+			font-size: inherit;
+			font-weight: inherit;
+			font-style: inherit;
+			font-variant: inherit;
+			text-decoration: inherit;
+			text-transform: inherit;
+			color: inherit;
+
+			@media ( prefers-color-scheme: dark ) {
+				color: inherit;
+			}
+
+			&:hover,
+			&:focus {
+				color: inherit;
+
+				@media ( prefers-color-scheme: dark ) {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	a {
+		font-size: var( --ccd-sidebar--link--font-size, var( --ccd-link--font-size, inherit ) );
+		font-weight: var( --ccd-sidebar--link--font-weight, var( --ccd-link--font-weight, inherit ) );
+		font-style: var( --ccd-sidebar--link--font-style, var( --ccd-link--font-style, normal ) );
+		font-variant: var( --ccd-sidebar--link--font-variant, var( --ccd-link--font-variant, normal ) );
+		text-decoration: var( --ccd-sidebar--link--text-decoration, var( --ccd-link--text-decoration, underline ) );
+		text-transform: var( --ccd-sidebar--link--text-transform, var( --ccd-link--text-transform, inherit ) );
+		color: var( --ccd-sidebar--link--text-color, var( --ccd-link--text-color ) );
+
+		@media ( prefers-color-scheme: dark ) {
+			color: var( --ccd-sidebar--link--text-color--dark, var( --ccd-link--text-color--dark ) );
+		}
+
+		&:hover,
+		&:focus {
+			color: var( --ccd-sidebar--link--action--text-color, var( --ccd-link--action--text-color ) );
+
+			@media ( prefers-color-scheme: dark ) {
+				color: var( --ccd-sidebar--link--action--text-color--dark, var( --ccd-link--action--text-color--dark ) );
+			}
+		}
+	}
+
+	ul {
+		margin: var( --ccd-sidebar--ul--margin, var( --ccd-sidebar--list--margin, 1rem 0 0 0 ) );
+		padding: var( --ccd-sidebar--ul--padding, var( --ccd-sidebar--list--padding, 0 ) );
+		list-style: var( --ccd-sidebar--ul--list-style, var( --ccd-sidebar--list--list-style, none ) );
+	}
+
+	ol {
+		margin: var( --ccd-sidebar--ol--margin, var( --ccd-sidebar--list--margin, 1rem 0 0 0 ) );
+		padding: var( --ccd-sidebar--ol--padding, var( --ccd-sidebar--list--padding, 0 0 0 1em ) );
+	}
+}

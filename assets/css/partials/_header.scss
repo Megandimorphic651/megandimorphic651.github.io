@@ -1,0 +1,98 @@
+///
+/// Site header styles
+///
+
+.site-header {
+	margin: var( --ccd-site-header--margin, 0 );
+	padding: var( --ccd-site-header--padding, 2rem );
+	background-color: var( --ccd-site-header--bg-color, inherit );
+	color: var( --ccd-site-header--text-color, inherit );
+
+	.general-wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem 2rem;
+	}
+}
+
+.site-identity {
+	display: flex;
+	align-items: center;
+	gap: 0 1rem;
+}
+
+.site-avatar {
+	margin: 0;
+	padding: 0;
+
+	img {
+		display: block;
+		max-height: 48px;
+	}
+}
+
+.site-title {
+	margin: var( --ccd-site-title--margin, 0 );
+	padding: var( --ccd-site-title--padding, 0 );
+	font-family: var( --ccd-site-title--font-family, var( --ccd-fonts--display-stack ) );
+	font-size: var( --ccd-site-title--font-size, 2rem );
+	font-weight: var( --ccd-site-title--font-weight, var( --ccd-heading-primary--font-weight, 700 ) );
+	line-height: var( --ccd-site-title--line-height, 1.1em );
+	letter-spacing: var( --ccd-site-title--letter-spacing, var( --ccd-heading-primary--letter-spacing, -0.015em ) );
+	word-spacing: var( --ccd-site-title--word-spacing, var( --ccd-heading-primary--word-spacing, -0.0325em ) );
+	color: var( --ccd-site-title--text-color, inherit );
+
+	a {
+		color: inherit;
+
+		&:hover,
+		&:focus {
+			color: inherit;
+		}
+	}
+}
+
+.site-description {
+	margin: var( --ccd-site-description--margin, 0 );
+	padding: var( --ccd-site-description--padding, 0 );
+	font-family: var( --ccd-site-description--font-family, var( --ccd-fonts--display-stack ) );
+	font-size: var( --ccd-site-description--font-size, 1.125rem );
+	font-weight: var( --ccd-site-description--font-weight, --ccd-heading-primary--font-weight, 400 );
+	line-height: var( --ccd-site-description--line-height, 1.1em );
+	letter-spacing: var( --ccd-site-description--letter-spacing, --ccd-heading-primary--letter-spacing, normal );
+	word-spacing: var( --ccd-site-description--word-spacing, --ccd-heading-primary--word-spacing, normal );
+}
+
+.site-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 0.5rem 0.75rem;
+	color: #ffffff;
+
+	li {
+		margin: 0;
+		font-size: 0.9375rem;
+		font-weight: 650;
+
+		a {
+			display: inline-block;
+			color: inherit;
+
+			&:hover,
+			&:focus {
+				color: inherit;
+			}
+		}
+	}
+}
+
+.menu-toggle {
+	display: none;
+
+	@media screen and ( max-width: 960px ) {
+		// display: block;
+	}
+}

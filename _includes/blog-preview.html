@@ -1,0 +1,51 @@
+<li>
+	<article id='{{ post.name | slugify | remove_last: "-md" }}' class="posts-entry">
+
+		<figure class="entry-image" role="presentation">
+			<a href="{{ post.url | absolute_url }}">
+				<img src="{{ '/assets/img/' | append: post_thumb | absolute_url }}" class="post-image" width="180" height="180" />
+			</a>
+		</figure>
+
+		<header class="entry-header">
+			<h2 class="post-title">
+				<a href="{{ post.url | absolute_url }}">
+					{{ post.title | strip_html }}
+				</a>
+			</h2>
+			{%- if post.subtitle %}
+			<p class="post-subtitle">
+				{{ post.subtitle | strip_html }}
+			</p>
+			{%- endif -%}
+		</header>
+		<div class="entry-summary">
+			<footer class="post-meta">
+				<p class="post-date">
+					Posted on {{ post.date | date: date_format }}
+					{%- if post.modified -%}
+					<br />
+					Modified {{ post.modified | date: date_format }}
+					{%- endif -%}
+				</p>
+				{%- if post.tags.size > 0 %}
+				<p class="post-tags">
+					<span class="post-tags-label">Posted in</span>
+					<span class="post-tags-list">
+					{% for tag in post.tags %}
+					<a href="{{ '/tags' | absolute_url }}#{{- tag -}}"> {{- tag | capitalize -}} </a>
+					{%- endfor -%}
+					</span>
+				</p>
+				{%- endif %}
+			</footer>
+			{%- assign length = site.length | default: 35 -%}
+			{%- assign word_count = post.excerpt | number_of_words -%}
+
+			<div class="post-excert">
+				<p>{{- post.excerpt | strip_html | truncatewords: length, "…" -}}</p>
+				<p><a href="{{ post.url | absolute_url }}" class="button">Read Post</a></p>
+			</div>
+		</div>
+	</article>
+</li>
