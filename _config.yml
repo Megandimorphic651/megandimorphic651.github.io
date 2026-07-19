@@ -32,6 +32,12 @@ defaults:
       layout: "page"
       image: /assets/img/default.png # The default image used for social and posts.
 
+main_nav:
+  - name: Posts
+    url: /blog
+  - name: Categories
+    url: /category/
+
 blog_view: preview
 paginate: 3
 paginate_path: "/posts/page:num/"
