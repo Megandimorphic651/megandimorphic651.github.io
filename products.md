@@ -1,6 +1,6 @@
 ---
 permalink: /products/
-layout: blog
+layout: default
 page_type: WebPage
 title: Stuff I've Made
 subtitle: Download anything you like, always for free.
