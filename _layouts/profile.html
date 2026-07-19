@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{%- assign user = site.github.owner %}
+{%- assign name = site.title | default: user.name | default: user.login %}
+{%- assign user_img = site.user_image | default: user.avatar_url | default: "/assets/img/user-image.jpg" %}
+{%- assign style = page.style | default: layout.style | default: site.style %}
+{%- assign links = page.links | default: site.links | default: nill %}
+{%- assign posts = page.posts | default: site.posts %}
+{%- assign posts_limit = page.posts_limit | default: site.posts_limit | default: site.paginate %}
+{% assign paginate_path = page.pagination.permalink | default: site.pagination.permalink | default: site.paginate_path
+%}
+{% assign paginate_first_page_path = paginate_path | replace: 'page:num', '' %}
+{% assign first_page_path = page.first_page_path | default: paginator.first_page_path | default:
+paginate_first_page_path %}
+
+{%- if content != blank %}
+{{ content }}
+{%- endif %}
+
+{%- if posts.size > 0 %}
+<h2>Latest posts</h2>
+{%- include post-timeline.html posts=posts limit=posts_limit index=first_page_path %}
+{%- endif %}

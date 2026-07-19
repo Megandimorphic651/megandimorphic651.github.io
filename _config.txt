@@ -47,6 +47,17 @@ collections:
     output: true
     permalink: /projects/:name/
 
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-target-blank
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-meta
+  - jekyll-toc
+  - jemoji
+
 # layout: page
 # title: Results
 # pagination:
